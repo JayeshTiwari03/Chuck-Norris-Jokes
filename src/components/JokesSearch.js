@@ -1,26 +1,24 @@
 import React from "react";
-import { getData } from "../redux/actions/jokes-action";
 import { connect } from "react-redux";
+import { getData } from "../redux/actions/jokes-action";
 import "../App.css";
 
-const JokesSearch = (props) => {
+const JokesSearch = props => {
   const [inputValue, setInputValue] = React.useState("");
 
   const onChangeHandler = (event) => {
     setInputValue(event.target.value);
-    console.log(inputValue);
   };
 
   return (
     <div>
-      <label className="">Number of jokes:</label>
+      <label>Number of jokes:</label>
       <input
         className="input"
         type="number"
         onChange={onChangeHandler}
         value={inputValue}
       />
-
       <button
         className="button-4"
         onClick={() => props.getData(inputValue)}
@@ -32,8 +30,8 @@ const JokesSearch = (props) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  getData: (inputValue) => dispatch(getData(inputValue)),
+const mapDispatchToProps = dispatch => ({
+  getData: (inputValue) => dispatch(getData(inputValue))
 });
 
 export default connect(null, mapDispatchToProps)(JokesSearch);
