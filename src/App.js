@@ -10,6 +10,6 @@ function App() {
       <JokesList />
     </div>
   );
-}
+};
 
 export default App;
