@@ -7,7 +7,6 @@ export default function* watcherSaga() {
 }
 
 // function that makes the api request and returns a Promise for response
-
 export function fetchJokes(input) {
   console.log(input);
   return axios({
@@ -21,11 +20,10 @@ function* workerSaga(action) {
   try {
     const response = yield call(fetchJokes, action.payload.inputValue);
     const jokes = response.data;
-
     // dispatch a success action to the store with the new dog
     yield put({ type: "FETCH_JOKES_SUCCESS", jokes });
   } catch (error) {
     // dispatch a failure action to the store with the error
     yield put({ type: "FETCH_JOKES_FAILURE", error });
   }
-}
+};
