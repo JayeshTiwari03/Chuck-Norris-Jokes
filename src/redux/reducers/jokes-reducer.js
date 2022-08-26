@@ -10,7 +10,6 @@ const initialState = {
 };
 
 export function reducer(state = initialState, action) {
-  console.log(state);
   switch (action.type) {
     case FETCH_JOKES_REQUEST:
       return { ...state, error: null };
@@ -21,4 +20,4 @@ export function reducer(state = initialState, action) {
     default:
       return state;
   }
-}
+};
